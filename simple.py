@@ -2,9 +2,9 @@ import asyncio
 from ably import AblyRest
 
 async def main():
-    async with AblyRest('your-ably-api-key') as ably_client:
-        channel = ably_client.channels.get("channel_name")
+    # automatic close connection
+    async with AblyRest('your-ably-api-key') as ably:
+        channel = ably.channels.get("channel-name")
 
-if __name__ == "__main__":
-    print ('call main')
-    asyncio.run(main())
+asyncio.run(main())
+    
